@@ -13,7 +13,6 @@
 // The system can also be activated/deactivated with the press of a switch. After an
 // activation, memory is erased and all values are initialized.
 
-*/
 
 // import libraries
 #include <math.h> // to use power for calculating standard deviation
