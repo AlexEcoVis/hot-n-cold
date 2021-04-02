@@ -28,7 +28,7 @@ The switch is used to activate or deactivate the whole system. The default state
 
 The LEDs represent ranges of temperature values – in this case, the following:  
 •	Blue: less than 19 degrees C  
-•	Orange: between 19 oC and 21 degrees C  
+•	Orange: between 19 and 21 degrees C  
 •	Red: more than 21 degrees C  
   
 If the switch is pressed again, the system deactivates and all LEDs are turned off. Upon activation, initialization occurs again to calculate average temperature and continue the cycle of temperature display (previous values are overwritten).  
