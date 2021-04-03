@@ -101,15 +101,6 @@ void loop() {
         }
       
         averageTemp = sum / MemoryExtent; // calculate average value
-      
-        // calculate standard deviation
-        float std = 0.0;
-      
-        for (int i = 0; i < MemoryExtent; i++){
-          std = std + pow(TempMemory[i] - averageTemp, 2);
-        }
-      
-        std = std / MemoryExtent;
         
         if (averageTemp < baseLineTemp){ // if temperature less than baseline
           digitalWrite(2, HIGH);
@@ -132,6 +123,14 @@ void loop() {
         // print mean and standard deviation, only if X seconds have passed
         // since last print (include first avg. temperature reading)
         if (TimeStart - TimeStamp >= TimeDisplay || Reading == MemoryExtent){
+          
+         // calculate standard deviation
+          float std = 0.0;
+          for (int i = 0; i < MemoryExtent; i++){
+            std = std + pow(TempMemory[i] - averageTemp, 2);
+          }
+          std = std / MemoryExtent;
+          
           Serial.print(" Avg. Temperature: "); Serial.print(averageTemp);
           Serial.print(" +- "); Serial.println(std);
           
