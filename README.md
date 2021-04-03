@@ -8,7 +8,7 @@ The idea of this project is to create a temperature display using Arduino. A tem
 •	TMP36  
 •	LEDs (x3)  
 •	Momentary switch  
-•	200Ω resistors (x3)  
+•	220Ω resistors (x3)  
 •	10kΩ resistor  
 •	Jumper wires  
   
