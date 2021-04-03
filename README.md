@@ -33,7 +33,7 @@ The LEDs represent ranges of temperature values – in this case, the following:
   
 If the switch is pressed again, the system deactivates and all LEDs are turned off. Upon activation, initialization occurs again to calculate average temperature and continue the cycle of temperature display (previous values are overwritten).  
 
-*All average temperature values, including standard deviation per group, are displayed on the serial monitor.*   
+*All average temperature values, including standard deviation per group, are displayed on the serial monitor every X seconds.*   
   
   
 <p align="center" width="100%">
