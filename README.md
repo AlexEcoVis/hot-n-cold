@@ -33,7 +33,7 @@ The LEDs represent ranges of temperature values – in this case, the following:
   
 If the switch is pressed again, the system deactivates and all LEDs are turned off. Upon activation, initialization occurs again to calculate average temperature and continue the cycle of temperature display (previous values are overwritten).  
 
-*All average temperature values, including standard deviation per group, are displayed on the serial monitor every X seconds.*   
+*All average temperature values, including standard deviation per group, are displayed on the serial monitor.*   
   
   
 <p align="center" width="100%">
@@ -44,3 +44,7 @@ If the switch is pressed again, the system deactivates and all LEDs are turned o
 <p align="center" width="100%">
     <img width="50%" src="https://github.com/AlexEcoVis/hot-n-cold/blob/main/Serial%20Monitor.gif"> 
 </p>
+
+# **UPDATES**
+  
+•	Temperature values can now be displayed on the serial monitor every X seconds.  
