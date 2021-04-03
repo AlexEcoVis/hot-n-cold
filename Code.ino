@@ -9,10 +9,10 @@
 // flickering of LEDs when temperature value is near their limits). LEDs begin
 // activation and descriptive values are calculated and displayed on the serial monitor only 
 // after value initialization has occured (wait time depends on extent of value memory recorded).
+// The values are displayed on the serial monitor every X seconds.
 
 // The system can also be activated/deactivated with the press of a switch. After an
-// activation, memory is erased and all values are initialized.
-
+// activation, all values are initialized.
 
 // import libraries
 #include <math.h> // to use power for calculating standard deviation
@@ -27,6 +27,13 @@ int Reading = 0; // temperature reading (used to avoid printing first readings)
 // set up system state variables
 int SystemState = 0; // system variable (ON/OFF = 1/0)
 int Switch = 9; // input pin 
+
+// time variable which stores time passed from beginning of sketch, only if
+// >= TimeDisplay seconds have passed from last serial display (is compared with millis() at
+// beginning of loop)
+
+int TimeDisplay = 5000;
+unsigned long TimeStamp = 0;
 
 // delay after switch press
 int DELAY = 200;
@@ -46,6 +53,8 @@ void setup() {
 }
 
 void loop() {
+  // calculate time since beginning of sketch
+  unsigned long TimeStart = millis();
   // if system is active, follow action depending on whether switch is pressed
   if (SystemState == 1){ //
     // if switch is pressed
@@ -120,10 +129,15 @@ void loop() {
           digitalWrite(4, HIGH);
         }
         
-        // print mean and standard deviation (avoid first readings)
-        Serial.print(" Avg. Temperature: "); Serial.print(averageTemp);
-        Serial.print(" +- "); Serial.println(std);
-        
+        // print mean and standard deviation, only if X seconds have passed
+        // since last print (include first avg. temperature reading)
+        if (TimeStart - TimeStamp >= TimeDisplay || Reading == MemoryExtent){
+          Serial.print(" Avg. Temperature: "); Serial.print(averageTemp);
+          Serial.print(" +- "); Serial.println(std);
+          
+          TimeStamp = TimeStart;
+        }
+        // else do not print
         delay(2); // note: a small delay is advised for ADC
       }
       
@@ -140,7 +154,7 @@ void loop() {
     
     // begin reading values from start (for initialization) - array values 
     // will be substituted by new values
-    Reading = 0;
+    Reading = 0; // begin reading values from start (for initialization)
     delay(DELAY);
     }
   // else do nothing
