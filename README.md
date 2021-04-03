@@ -15,7 +15,7 @@ The idea of this project is to create a temperature display using Arduino. A tem
 # **PROCESS**  
   
 ## **Board**  
-Three LEDs are connected to pins 2,3 and 4, set as output pins. They are connected to ground with 220 Ω resistors. A switch is connected to pin 9, set as an input pin, and connected to ground with a 10kΩ resistor. The TMP36 sensor is connected to analog pin A0.   
+Three LEDs are connected to pins 2,3 and 4, set as output pins. They are connected to ground with 220Ω resistors. A switch is connected to pin 9, set as an input pin, and connected to ground with a 10kΩ resistor. The TMP36 sensor is connected to analog pin A0.   
   
 <p align="center" width="100%">
     <img width="50%" src="https://github.com/AlexEcoVis/hot-n-cold/blob/main/Board.jpg"> 
