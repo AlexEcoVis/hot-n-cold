@@ -33,6 +33,7 @@ int Switch = 9; // input pin
 // beginning of loop)
 
 int TimeDisplay = 5000;
+unsigned long TimeStart = 0;
 unsigned long TimeStamp = 0;
 
 // delay after switch press
@@ -54,7 +55,7 @@ void setup() {
 
 void loop() {
   // calculate time since beginning of sketch
-  unsigned long TimeStart = millis();
+  TimeStart = millis();
   // if system is active, follow action depending on whether switch is pressed
   if (SystemState == 1){ //
     // if switch is pressed
